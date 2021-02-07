@@ -7,13 +7,7 @@ import './SafeMath.sol';
 contract Project {
     using SafeMath for uint256;
     
-    // Data structures
-    enum State {
-        Fundraising,
-        Expired,
-        Successful
-    }
-
+ 
     // State variables
     address payable public _auctionOwner;  //person who deploys the contract A.K.A Auction Owner
     uint256 public lastHigh; // new bids should be higher than this
@@ -22,7 +16,7 @@ contract Project {
     string public title;
     string public description;
     uint256 public auctionDeadline; //timestamp when the auction expires
-    State public state = State.Fundraising; // initialize on create
+   
     mapping (address => uint) public bids; //just to keep track of contributions
     bool stillRaising;
     bool expired;
@@ -32,11 +26,6 @@ contract Project {
     // Event that will be emitted whenever the project starter has received the funds
     event auctionerPaid(uint256 _totalPaid);
 
-    // Modifier to check current state
-    modifier inState(State _state) {
-        require(state == _state);
-        _;
-    }
 
 
     modifier isCreator() {

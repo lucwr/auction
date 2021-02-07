@@ -195,19 +195,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "state",
-				"outputs": [
-					{
-						"internalType": "enum Project.State",
-						"name": "",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "title",
 				"outputs": [
 					{
@@ -261,10 +248,10 @@
 	},
 	"sources": {
 		"localhost/contracts/Auction.sol": {
-			"keccak256": "0x7d0dee85344abe56ea65e68bfb20f185fc3f6161a1a21788e37fa0740c1419bb",
+			"keccak256": "0x5adfb5531906afee7096c7b0655f9f03708820ad85d5a4888ea6e41ac85ab9e9",
 			"urls": [
-				"bzz-raw://f51dbf7035a3d5d725e6c4e2520bb6089427398959050e6a707b1e7885e030eb",
-				"dweb:/ipfs/QmerZNtYzSZVVTS9i8gv1wPUA7E6hnQtuE5LtsrS9HXLjD"
+				"bzz-raw://0f5c24d586e039bacc7f4a18de2a673373a07ae1d9c4aa5a1f548add52b4fcbe",
+				"dweb:/ipfs/QmVUTqwSzFeHxYpAKGJhwnnBN4pgwCauk7nLVbH9xEq9U8"
 			]
 		},
 		"localhost/contracts/SafeMath.sol": {
