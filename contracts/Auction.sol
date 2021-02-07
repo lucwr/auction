@@ -4,7 +4,7 @@ import './SafeMath.sol';
 
 
 
-contract Project {
+contract Auction {
     using SafeMath for uint256;
     
  
@@ -66,12 +66,13 @@ contract Project {
         auctionDeadline=_auctionDeadline; //in unix timestamp
     
     }
-
+event currentWinners(address _winner,uint256 _amount);
 
     function contribute() external stillAcceptingBids isHigher(msg.value) payable returns(bool){
         require(msg.sender != _auctionOwner);
         bids[msg.sender] = bids[msg.sender].add(msg.value);
         lastHigh=bids[msg.sender];
+        winner=msg.sender;
         emit bidReceived(msg.sender, msg.value);
         return true;
     }
@@ -110,6 +111,11 @@ contract Project {
         bids[msg.sender] = 0;
         msg.sender.send(amountToRefund);
         return true;
+    }
+    
+    function getWinningBid() public returns(address,uint256){
+        emit currentWinners(winner,lastHigh);
+        return (winner,lastHigh);
     }
 
   

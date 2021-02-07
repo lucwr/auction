@@ -64,6 +64,25 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_winner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "currentWinner",
+				"type": "event"
+			},
+			{
 				"inputs": [],
 				"name": "_auctionOwner",
 				"outputs": [
@@ -182,6 +201,24 @@
 			},
 			{
 				"inputs": [],
+				"name": "getWinningBid",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "lastHigh",
 				"outputs": [
 					{
@@ -233,7 +270,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"localhost/contracts/Auction.sol": "Project"
+			"localhost/contracts/Auction.sol": "Auction"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -248,10 +285,10 @@
 	},
 	"sources": {
 		"localhost/contracts/Auction.sol": {
-			"keccak256": "0x5adfb5531906afee7096c7b0655f9f03708820ad85d5a4888ea6e41ac85ab9e9",
+			"keccak256": "0x97865012e2808ff5df1cedc7fcca38fde7f53694e53e0f0d44653bdc3e234efc",
 			"urls": [
-				"bzz-raw://0f5c24d586e039bacc7f4a18de2a673373a07ae1d9c4aa5a1f548add52b4fcbe",
-				"dweb:/ipfs/QmVUTqwSzFeHxYpAKGJhwnnBN4pgwCauk7nLVbH9xEq9U8"
+				"bzz-raw://d22df86d092699754129ab238a106170e39d7c903de99cc01c3e523c22731eb5",
+				"dweb:/ipfs/QmWXRTrpDqCPucqJXSgMXuD3wJd1PUUjL3aD74mZaDJsKh"
 			]
 		},
 		"localhost/contracts/SafeMath.sol": {
