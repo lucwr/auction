@@ -1,0 +1,153 @@
+{
+	"compiler": {
+		"version": "0.7.6+commit.7338295f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "contractAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "projectStarter",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "projectTitle",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "projectDesc",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "goalAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "ProjectStarted",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "returnAllProjects",
+				"outputs": [
+					{
+						"internalType": "contract Project[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "title",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "durationInDays",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountToRaise",
+						"type": "uint256"
+					}
+				],
+				"name": "startProject",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"returnAllProjects()": {
+					"details": "Function to get all projects' contract addresses.",
+					"returns": {
+						"_0": "A list of all projects' contract addreses"
+					}
+				},
+				"startProject(string,string,uint256,uint256)": {
+					"details": "Function to start a new project.",
+					"params": {
+						"amountToRaise": "Project goal in wei",
+						"description": "Brief description about the project",
+						"durationInDays": "Project deadline in days",
+						"title": "Title of the project to be created"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/contracts/Auction.sol": "Crowdfunding"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/contracts/Auction.sol": {
+			"keccak256": "0x94a15b37c26a4ad258b3bc8d3b080f49bdd9a81d7bc384551f1be5bc0cd41058",
+			"urls": [
+				"bzz-raw://ac716de8308a73c7fa352c459c924ad01658368de7a805307283bf22d10856e7",
+				"dweb:/ipfs/QmZTvxmsyTdR9RvGeeoXwP8mkMJhdysAkUbAmEemd3Bo1K"
+			]
+		},
+		"localhost/contracts/SafeMath.sol": {
+			"keccak256": "0x3b21f2c8d626de3b9925ae33e972d8bf5c8b1bffb3f4ee94daeed7d0679036e6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7f8d45329fecbf0836ad7543330c3ecd0f8d0ffa42d4016278c3eb2215fdcdfe",
+				"dweb:/ipfs/QmXWLT7GcnHtA5NiD6MFi2CV3EWJY4wv5mLNnypqYDrxL3"
+			]
+		}
+	},
+	"version": 1
+}
