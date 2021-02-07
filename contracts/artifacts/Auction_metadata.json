@@ -67,7 +67,7 @@
 				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": true,
+						"indexed": false,
 						"internalType": "address",
 						"name": "_winner",
 						"type": "address"
@@ -79,7 +79,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "currentWinner",
+				"name": "currentWinners",
 				"type": "event"
 			},
 			{
@@ -285,10 +285,10 @@
 	},
 	"sources": {
 		"localhost/contracts/Auction.sol": {
-			"keccak256": "0x97865012e2808ff5df1cedc7fcca38fde7f53694e53e0f0d44653bdc3e234efc",
+			"keccak256": "0x4efcdf057c2d3c0084e125ea4391010952739337657f9701afbfb28cfb32189a",
 			"urls": [
-				"bzz-raw://d22df86d092699754129ab238a106170e39d7c903de99cc01c3e523c22731eb5",
-				"dweb:/ipfs/QmWXRTrpDqCPucqJXSgMXuD3wJd1PUUjL3aD74mZaDJsKh"
+				"bzz-raw://7819b9cd3a0979e7ab07a49266edb2b34b2318dd89be3d8658e8b65ebcaae8c8",
+				"dweb:/ipfs/QmbLCckVJ5cj1t9DSES6DEGfPz2B4qsaHWj7HdJ3ziGeX9"
 			]
 		},
 		"localhost/contracts/SafeMath.sol": {

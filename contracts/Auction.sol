@@ -27,24 +27,27 @@ contract Auction {
     event auctionerPaid(uint256 _totalPaid);
 
 
-
+//checks that the caller is a creator
     modifier isCreator() {
         require(msg.sender == _auctionOwner,"yikes, you didn't create this auction");
         _;
     }
     
+    //makes sure the cumulative bid by trhe sender is higher than the current highest bid
     modifier isHigher(uint256 amountSent){
         require (bids[msg.sender]+amountSent>lastHigh,"your bid should be higher than the current bid");
         _;
     }
     
+        //requires that the auction can still receive bids
     modifier stillAcceptingBids{
        require(stillRaising=true);
        
         require (block.timestamp<=auctionDeadline);
         _;
     }
-    
+
+//make sure the auction has either expired or has been ended by the auction owner
     modifier auctionFinished{
         
      require (stillRaising==false);
@@ -68,6 +71,8 @@ contract Auction {
     }
 event currentWinners(address _winner,uint256 _amount);
 
+//allows users to place a bid so far the total ampount of bids(plus this one) is lesser than the current highest bid
+//it performs some arithmetic operations so , medium gas usage is inevitable
     function contribute() external stillAcceptingBids isHigher(msg.value) payable returns(bool){
         require(msg.sender != _auctionOwner);
         bids[msg.sender] = bids[msg.sender].add(msg.value);
@@ -81,6 +86,8 @@ event currentWinners(address _winner,uint256 _amount);
         return lastHigh;
     }
 
+//uses a minimal amount of gas
+ //to save gas it changes the state of two boolean values depending on different situations
     function acceptHighestBid() public isCreator{
         if ((block.timestamp<=auctionDeadline)) {
             expired=true;
@@ -92,8 +99,8 @@ event currentWinners(address _winner,uint256 _amount);
         payOut();
     }}
 
-    /** @dev Function to give the received funds to project starter.
-      */
+    // Function to give the received funds to project starter.
+   
     function payOut() internal returns (bool) {
         uint256 highestRaised = lastHigh;
         _auctionOwner.transfer(highestRaised);
@@ -104,15 +111,17 @@ event currentWinners(address _winner,uint256 _amount);
 
     }
 
+//uses a little amount of ga since it only refunds eth(default 2300 gas sent with txn)
     function getRefund() public auctionFinished returns (bool) {
         require(bids[msg.sender] > 0);
 
         uint256 amountToRefund = bids[msg.sender];
         bids[msg.sender] = 0;
-        msg.sender.send(amountToRefund);
+        msg.sender.transfer(amountToRefund);
         return true;
     }
     
+    //normally should be a view function but has to change state because of event emitted
     function getWinningBid() public returns(address,uint256){
         emit currentWinners(winner,lastHigh);
         return (winner,lastHigh);
